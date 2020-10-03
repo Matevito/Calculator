@@ -113,4 +113,20 @@ function get_symb (operator_){
     }
 }
 
-//equal event
+//equal btn event
+
+const solve_btn = document.getElementById("solve");
+
+solve_btn.addEventListener("click", function(){
+    first_number =  parseInt(first_number);
+    second_number = parseInt(second_number);
+    result = operate(operator,first_number,second_number);
+
+    result = result.toString();
+    first_number = result;
+    second_number = "";
+    console_screen.textContent = result;
+})
+
+
+//clear btn event
