@@ -49,7 +49,7 @@ let second_number = "";
 
     //the content of the cariable will be used to let
     //know if the first or second number is being stored
-let operator = "start";
+let operator = "";
 
 let operator_simb;
 
@@ -62,7 +62,7 @@ const numb_btns = document.querySelectorAll(".btn_num");
 numb_btns.forEach((button) =>{
     button.addEventListener("click", function() {
         current_value = button.value;
-        if (operator == "start"){
+        if (operator == ""){
             //save the value in the first variable
             first_number += current_value;
             //show the variable
@@ -118,15 +118,32 @@ function get_symb (operator_){
 const solve_btn = document.getElementById("solve");
 
 solve_btn.addEventListener("click", function(){
-    first_number =  parseInt(first_number);
-    second_number = parseInt(second_number);
-    result = operate(operator,first_number,second_number);
 
+    //todo: this into a function and then put it into the op btn when the case is correct(second_number != "")
+    let number_1 =  parseInt(first_number);
+    let number_2 = parseInt(second_number);
+    let result = operate(operator,number_1,number_2);
+
+    //todo: if the varaibles dont have values dont run the code
     result = result.toString();
     first_number = result;
     second_number = "";
+    operator = "";
+    operator_simb ="";
+
     console_screen.textContent = result;
 })
 
 
 //clear btn event
+
+const clear_btn = document.getElementById("clear");
+
+clear_btn.addEventListener("click", function(){
+    first_number = "";
+    second_number = "";
+    operator = "";
+    operator_simb = "";
+    console_screen.textContent = "";
+    console.log(first_number)
+})
