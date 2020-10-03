@@ -71,7 +71,9 @@ numb_btns.forEach((button) =>{
             //save the value in the second variable
             second_number += current_value;
             //show the first variable, the operator simbol and the second variable
-            console_screen.textContent = second_number
+            text_to_show = `${first_number} ${operator_simb} ${second_number}`
+
+            console_screen.textContent = text_to_show
         }
     })
 })
@@ -81,10 +83,34 @@ numb_btns.forEach((button) =>{
 const op_btns = document.querySelectorAll(".btn_op");
 
 
-//todo: bugg when the first click is on an operator(this makes imposible to save a value in the first numb)
+
 op_btns.forEach((button) => {
     button.addEventListener("click", function (){
+
+        //todo: bugg when the first click is on an operator(this makes imposible to save a value in the first numb)
+        if(first_number == ""){
+            console.log("staap");
+            return
+        }
+
         operator = button.value;
-        console.log(operator)
+        operator_simb = get_symb(operator);
+        text_to_show = `${first_number} ${operator_simb}`;
+        console_screen.textContent =text_to_show
     })
 })
+
+function get_symb (operator_){
+    switch(operator_){
+        case "add":
+            return "+";
+        case "subtract":
+            return "-";
+        case "multiply":
+            return "x";
+        case "divide":
+            return "/"
+    }
+}
+
+//equal event
