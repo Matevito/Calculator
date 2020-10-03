@@ -39,3 +39,52 @@ function operate (operation, first_n, second_n){
     }
     return result
 }
+
+//variables of the calculator
+
+let first_number = "";
+
+let second_number = "";
+
+
+    //the content of the cariable will be used to let
+    //know if the first or second number is being stored
+let operator = "start";
+
+let operator_simb;
+
+const console_screen = document.getElementById("cal_console")
+
+//numb_btns events
+
+const numb_btns = document.querySelectorAll(".btn_num");
+
+numb_btns.forEach((button) =>{
+    button.addEventListener("click", function() {
+        current_value = button.value;
+        if (operator == "start"){
+            //save the value in the first variable
+            first_number += current_value;
+            //show the variable
+            console_screen.textContent = first_number;
+        } else {
+            //save the value in the second variable
+            second_number += current_value;
+            //show the first variable, the operator simbol and the second variable
+            console_screen.textContent = second_number
+        }
+    })
+})
+
+//operation btns events
+
+const op_btns = document.querySelectorAll(".btn_op");
+
+
+//todo: bugg when the first click is on an operator(this makes imposible to save a value in the first numb)
+op_btns.forEach((button) => {
+    button.addEventListener("click", function (){
+        operator = button.value;
+        console.log(operator)
+    })
+})
