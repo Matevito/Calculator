@@ -129,8 +129,11 @@ function solve_operation (){
     if (first_number == "" || second_number == ""){
         return;
     };
-    let number_1 =  parseInt(first_number);
-    let number_2 = parseInt(second_number);
+    let number_1 =  parseFloat(first_number);
+    let number_2 = parseFloat(second_number);
+
+    console.log(number_1);
+    console.log(number_2);
 
     //divide by 0 bugg solve
     if(number_2 == 0){
@@ -159,4 +162,69 @@ clear_btn.addEventListener("click", function(){
     operator = "";
     operator_simb = "";
     console_screen.textContent = ""
+});
+
+// decimal btn event
+const decimal_btn = document.getElementById("decimal_btn");
+
+decimal_btn.addEventListener("click", function(){
+    //identify wich variable we are putting the decimal point
+
+    //check if theres already a decimal point in the variable
+
+    //identify wich variable we are modifying
+    let num_position;
+    if(second_number == ""){
+        num_position = "first";
+    } else {
+        num_position = "second";
+    }
+    //search the string for - and act accordingly
+    let first_array = first_number.split("");
+    let second_array = second_number.split("");
+
+    
+
+    if (num_position == "first"){
+        let found = find_element(first_array, ".");
+        if (found == "."){
+            return
+        }
+        first_array.push(".");
+        first_number = first_array.join("");
+        console_screen.textContent = first_number;
+
+    }else{
+        let found = find_element(second_array,".");
+        if (found == "."){
+            return
+        }
+        second_array.push(".");
+        second_number = second_array.join("");
+        text_to_show = `${first_number} ${operator_simb} ${second_number}`;
+        console_screen.textContent = text_to_show;
+
+    }
+
 })
+
+function find_element (array_, string) {
+    for (i=0; i<array_.length; i++){
+        current_element = array_[i];
+        if(current_element == "."){
+            return ".";
+        }
+    }
+    return "no found"
+}
+
+/// positive/negative btn event
+
+const pos_neg_btn = document.getElementById("pos_neg_btn");
+
+pos_neg_btn.addEventListener("click", function () {})
+    //identify wich variable we are modifying
+    //search the string for - and act accordingly
+
+
+// c_lastOne_btn 
