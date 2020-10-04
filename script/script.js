@@ -132,9 +132,6 @@ function solve_operation (){
     let number_1 =  parseFloat(first_number);
     let number_2 = parseFloat(second_number);
 
-    console.log(number_1);
-    console.log(number_2);
-
     //divide by 0 bugg solve
     if(number_2 == 0){
         second_number = "";
@@ -168,23 +165,20 @@ clear_btn.addEventListener("click", function(){
 const decimal_btn = document.getElementById("decimal_btn");
 
 decimal_btn.addEventListener("click", function(){
-    //identify wich variable we are putting the decimal point
 
-    //check if theres already a decimal point in the variable
-
-    //identify wich variable we are modifying
+    //identify wich variable is being modified
     let num_position;
     if(second_number == ""){
         num_position = "first";
     } else {
         num_position = "second";
     }
-    //search the string for - and act accordingly
+    
     let first_array = first_number.split("");
     let second_array = second_number.split("");
 
     
-
+    //put the decimal point in the variable if is possible
     if (num_position == "first"){
         let found = find_element(first_array, ".");
         if (found == "."){
@@ -222,9 +216,46 @@ function find_element (array_, string) {
 
 const pos_neg_btn = document.getElementById("pos_neg_btn");
 
-pos_neg_btn.addEventListener("click", function () {})
+pos_neg_btn.addEventListener("click", function () {
     //identify wich variable we are modifying
-    //search the string for - and act accordingly
+    let num_position;
+    if(second_number == ""){
+        num_position = "first";
+    } else {
+        num_position = "second";
+    }
+    
+    let first_array = first_number.split("");
+    let second_array = second_number.split("");
 
+    //search the string for - and act accordingly
+    if (num_position == "first"){
+        let sign = first_array[0];
+        if(sign == "-"){
+            first_array.splice(0,1);
+            first_number = first_array.join("");
+            console_screen.textContent = first_number;
+            return;
+        }
+        first_array.unshift("-");
+        first_number = first_array.join("");
+        console_screen.textContent = first_number;
+        
+    }else {
+        let sign = second_array[0];
+        if (sign == "-"){
+            second_array.splice(0,1);
+            second_number = second_array.join("");
+            text_to_show = `${first_number} ${operator_simb} ${second_number}`;
+            console_screen.textContent = text_to_show;
+            return
+        }
+        second_array.unshift("-");
+        second_number = second_array.join("");
+        text_to_show = `${first_number} ${operator_simb} ${second_number}`;
+        console_screen.textContent = text_to_show;
+    }
+
+})
 
 // c_lastOne_btn 
