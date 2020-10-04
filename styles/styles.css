@@ -1,13 +1,44 @@
-#cal_console {
-    height: 40px;
-    width: 1fr;
-    border: 1px solid black;
+body{
+    font-size: 1rem;
+    font-family: Helvetica, sans-serif;
+    background-color: #eedacf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+
+#cal_console {
+    text-shadow: 2px 2px 4px 2px rgb(44, 44, 44);
+    outline:none;
+    box-shadow: inset 4px 4px 3px -5px black;
+    height: 1fr;
+    width: 1fr;
+    background-color: peachpuff;
+}
+
+h1{
+    text-align: center;
+}
+
+button {
+    border: none;
+    font-size: 1rem;
+    color: white;
+    text-shadow: 2px 2px 4px 2px rgb(44, 44, 44);
+    outline:none;
+    box-shadow: inset 4px 4px 3px -5px black;
+}
+button:hover {
+    box-shadow: inset -16px -2px 188px 200px rgba(0,0,0,0.10);
+}
+
+
 #calculator_container{
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-rows: 40px 50px 50px 50px 50px 50px;
     grid-template-areas: 
     "console console console console"
     "clear clear neg_btn add_"
@@ -19,66 +50,89 @@
 
 #cal_console { 
     grid-area: console;
+    font-family: "ZCOOL QingKe HuangYou";
+    text-align: end;
+    padding: 10px;
+    border-radius: 4px;
 }
 
 #solve {
     grid-area: solve;
+    background-color: grey;
 }
 
 #decimal_btn {
     grid-area: decimal_;
+    background-color: green;
 }
 
 #clear {
     grid-area: clear;
+    background-color: grey;
 }
 #pos_neg_btn{
     grid-area: neg_btn;
+    background-color: rgb(10, 91, 212);
 }
 
 #add{
+    background-color: rgb(10, 91, 212);
     grid-area: add_;
 }
 
 #subtract{
     grid-area: subt;
+    background-color: rgb(10, 91, 212);
 }
 
 #multiply{
+    background-color: rgb(10, 91, 212);
     grid-area: mult;
 }
 
 #divive{
     grid-area: divide;
+    background-color: rgb(10, 91, 212);
 }
 
 #one{
     grid-area: one;
+    background-color: green;
 }
 #two{
     grid-area: two;
+    background-color: green;
+
 }
 #three{
     grid-area: three;
+    background-color: green;
 }
 #four{
     grid-area: four;
+    background-color: green;
 }
 #five{
     grid-area: five;
+    background-color: green;
 }
 #six{
     grid-area: six;
+    background-color: green;
 }
 #seven{
     grid-area: seven;
+    background-color: green;
 }
 #eigth{
     grid-area: eight;
+    background-color: green;
 }
 #nine{
     grid-area: nine;
+    background-color: green;
 }
 #cero{
     grid-area: cero;
+    background-color: green;
 }
