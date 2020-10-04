@@ -89,12 +89,21 @@ op_btns.forEach((button) => {
 
         //todo: bugg when the first click is on an operator(this makes imposible to save a value in the first numb)
         if(first_number == ""){
-            console.log("staap");
-            return
+            //todo:check if this can be a break statement
+            return;
+        }
+        // op_btn as an equal statement
+        else if (second_number !== ""){
+            solve_operation();
+            operator = button.value;
+            operator_simb = get_symb(operator);
+            text_to_show = `${first_number} ${operator_simb}`;
+            console_screen.textContent =text_to_show;
+            return;
         }
 
         operator = button.value;
-        operator_simb = get_symb(operator);
+        operator_simb = get_symb(operator); 
         text_to_show = `${first_number} ${operator_simb}`;
         console_screen.textContent =text_to_show
     })
@@ -118,8 +127,11 @@ function get_symb (operator_){
 const solve_btn = document.getElementById("solve");
 
 solve_btn.addEventListener("click", function(){
+    solve_operation ()
+})
 
-    //todo: this into a function and then put it into the op btn when the case is correct(second_number != "")
+function solve_operation (){
+    //todo: this into a function and then put it into the op_btn when the case is correct(second_number != "")
     let number_1 =  parseInt(first_number);
     let number_2 = parseInt(second_number);
     let result = operate(operator,number_1,number_2);
@@ -128,12 +140,10 @@ solve_btn.addEventListener("click", function(){
     result = result.toString();
     first_number = result;
     second_number = "";
-    operator = "";
-    operator_simb ="";
 
+    //todo: round up answers with long decimals
     console_screen.textContent = result;
-})
-
+}
 
 //clear btn event
 
@@ -144,6 +154,5 @@ clear_btn.addEventListener("click", function(){
     second_number = "";
     operator = "";
     operator_simb = "";
-    console_screen.textContent = "";
-    console.log(first_number)
+    console_screen.textContent = ""
 })
