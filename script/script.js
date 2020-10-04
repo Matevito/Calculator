@@ -46,7 +46,6 @@ let first_number = "";
 
 let second_number = "";
 
-
     //the content of the cariable will be used to let
     //know if the first or second number is being stored
 let operator = "";
@@ -72,7 +71,6 @@ numb_btns.forEach((button) =>{
             second_number += current_value;
             //show the first variable, the operator simbol and the second variable
             text_to_show = `${first_number} ${operator_simb} ${second_number}`
-
             console_screen.textContent = text_to_show
         }
     })
@@ -82,12 +80,8 @@ numb_btns.forEach((button) =>{
 
 const op_btns = document.querySelectorAll(".btn_op");
 
-
-
 op_btns.forEach((button) => {
     button.addEventListener("click", function (){
-
-        //todo: bugg when the first click is on an operator(this makes imposible to save a value in the first numb)
         if(first_number == ""){
             //todo:check if this can be a break statement
             return;
@@ -131,12 +125,14 @@ solve_btn.addEventListener("click", function(){
 })
 
 function solve_operation (){
-    //todo: this into a function and then put it into the op_btn when the case is correct(second_number != "")
+    //if the varaibles dont have values dont run the code
+    if (first_number == "" || second_number == ""){
+        return;
+    };
     let number_1 =  parseInt(first_number);
     let number_2 = parseInt(second_number);
     let result = operate(operator,number_1,number_2);
 
-    //todo: if the varaibles dont have values dont run the code
     result = result.toString();
     first_number = result;
     second_number = "";
