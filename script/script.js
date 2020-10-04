@@ -16,6 +16,10 @@ function divide (first_n, second_n) {
     return first_n / second_n
 };
 
+function round (value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+};
+
 // operate function inp: 2 numbers and an operation; output: the result of the operation between the 2 nums
 
 function operate (operation, first_n, second_n){
@@ -140,7 +144,8 @@ function solve_operation (){
         return;
     }
     let result = operate(operator,number_1,number_2);
-
+    //round upp function
+    result = round(result,5);
     result = result.toString();
     first_number = result;
     second_number = "";
@@ -258,4 +263,4 @@ pos_neg_btn.addEventListener("click", function () {
 
 })
 
-// c_lastOne_btn 
+// backSpace_btn event
