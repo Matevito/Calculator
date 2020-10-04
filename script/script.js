@@ -112,7 +112,7 @@ function get_symb (operator_){
         case "multiply":
             return "x";
         case "divide":
-            return "/"
+            return "/";
     }
 }
 
@@ -131,6 +131,14 @@ function solve_operation (){
     };
     let number_1 =  parseInt(first_number);
     let number_2 = parseInt(second_number);
+
+    //divide by 0 bugg solve
+    if(number_2 == 0){
+        second_number = "";
+        text_to_show = `${first_number} ${operator_simb}`;
+        console_screen.textContent = text_to_show;
+        return;
+    }
     let result = operate(operator,number_1,number_2);
 
     result = result.toString();
