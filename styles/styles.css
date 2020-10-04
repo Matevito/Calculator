@@ -1,5 +1,84 @@
 #cal_console {
     height: 40px;
-    width: 200px;
+    width: 1fr;
     border: 1px solid black;
+}
+
+#calculator_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-areas: 
+    "console console console console"
+    "clear clear neg_btn add_"
+    "one two three subt"
+    "four five six mult"
+    "seven eight nine divide"
+    "cero cero decimal_ solve";
+}
+
+#cal_console { 
+    grid-area: console;
+}
+
+#solve {
+    grid-area: solve;
+}
+
+#decimal_btn {
+    grid-area: decimal_;
+}
+
+#clear {
+    grid-area: clear;
+}
+#pos_neg_btn{
+    grid-area: neg_btn;
+}
+
+#add{
+    grid-area: add_;
+}
+
+#subtract{
+    grid-area: subt;
+}
+
+#multiply{
+    grid-area: mult;
+}
+
+#divive{
+    grid-area: divide;
+}
+
+#one{
+    grid-area: one;
+}
+#two{
+    grid-area: two;
+}
+#three{
+    grid-area: three;
+}
+#four{
+    grid-area: four;
+}
+#five{
+    grid-area: five;
+}
+#six{
+    grid-area: six;
+}
+#seven{
+    grid-area: seven;
+}
+#eigth{
+    grid-area: eight;
+}
+#nine{
+    grid-area: nine;
+}
+#cero{
+    grid-area: cero;
 }

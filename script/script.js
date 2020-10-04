@@ -16,6 +16,8 @@ function divide (first_n, second_n) {
     return first_n / second_n
 };
 
+
+//function to round up decimals
 function round (value, decimals) {
     return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 };
@@ -87,7 +89,6 @@ const op_btns = document.querySelectorAll(".btn_op");
 op_btns.forEach((button) => {
     button.addEventListener("click", function (){
         if(first_number == ""){
-            //todo:check if this can be a break statement
             return;
         }
         // op_btn as an equal statement
@@ -263,4 +264,4 @@ pos_neg_btn.addEventListener("click", function () {
 
 })
 
-// backSpace_btn event
+//todo: backSpace_btn event
